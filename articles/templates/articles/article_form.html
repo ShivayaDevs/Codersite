@@ -1,0 +1,22 @@
+{% extends 'articles/base.html'%}
+
+{% block body %}
+
+<form action = "" method="post" >
+    {% csrf_token %}
+    <div class="form-group">
+        <label for = "title">Title</label>
+        <input type="text" name="title" id = "title" class="form-control" placeholder="Enter Title of the article" >
+    </div>
+    <div class="form-group">
+        <label for = "content">Enter Aricle Content</label>
+        <textarea class="form-control" id="content" rows="3" name="content"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
+</form>
+
+{% endblock %}
+
+
+

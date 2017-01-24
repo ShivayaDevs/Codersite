@@ -27,13 +27,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL = '/' # It means home view
+
 
 # Application definition
 
 INSTALLED_APPS = [
+    'users',
     'articles',
     'forum',
     'practice',
+    'logapp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -57,7 +61,7 @@ ROOT_URLCONF = 'Codersite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["templates"], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

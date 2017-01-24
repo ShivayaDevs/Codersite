@@ -1,0 +1,10 @@
+{% if all_articles %}
+    <ul>
+    {% for article in all_articles %}
+        <h2><li><a href="{% url 'articles:detail' article.id %}">{{ article.title }}</a></li></h2>
+        <h3>Date Added : {{article.date_added}}</h3>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

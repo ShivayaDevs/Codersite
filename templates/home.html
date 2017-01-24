@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>Code Site</title>
+</head>
+<body>
+<h1>Welcome to CodeSite</h1>
+{% if user.username %}
+<p>Welcome {{ user.username }}!</p><br/>
+<p>Add Article : <a href="articles/add/"> Add</a></p>
+<p><a href = "{% url 'articles:index' %}">List Of Articles</a>
+
+<p><a href="logout/">logout</a></p>
+{% else %}
+<p>Welcome anonymous user!
+You need to <a href="/login/">login</a></p>
+{% endif %}
+
+</body>
+</html>
