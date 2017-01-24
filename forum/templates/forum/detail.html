@@ -1,0 +1,19 @@
+{% extends 'forum/base.html' %}
+{% block body %}
+  <h1>FORUM</h1>
+  <h3>{{ question.question }}</h3>
+  <h4>&nbsp; &nbsp; -{{ question.userID.username }}</h4>
+
+  <a href = "{% url 'forum:answerAdd' question.id %}"> +Answer This Ques </a>&nbsp;
+  <a href = "{% url 'forum:questionAdd'  %}"> +Ask Another Question</a>
+
+  {% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+  {% endif %}
+
+  {% for ans in question.answer_set.all %}
+    <p><strong>{{ ans.userID.username }}: </strong> {{ ans.answer }}</p>
+    <br>
+  {% endfor %}
+
+{% endblock %}

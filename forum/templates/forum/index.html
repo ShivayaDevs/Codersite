@@ -1,0 +1,16 @@
+{% extends 'forum/base.html' %}
+{% block body %}
+<h1>FORUM </h1>
+
+<a href = "{% url 'forum:questionAdd'  %}"> +Ask Question </a>
+
+<ul>
+  {% for ques in all_ques %}
+    <a href = "{% url 'forum:detail' ques.id %}">{{ ques.question }}</a>
+    <br>
+    <br>
+
+  {% endfor %}
+</ul>
+
+{% endblock %}

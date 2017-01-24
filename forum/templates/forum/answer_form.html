@@ -1,0 +1,10 @@
+{% extends 'forum/base.html' %}
+{% block body %}
+
+<form action="" method="post">
+{% csrf_token %}
+<h3>{{ question.question }}</h3>
+{% include 'forum/form_template.html' %}
+<input type="submit" name="submit" value="answer">
+
+{% endblock %}

@@ -58,7 +58,7 @@ ROOT_URLCONF = 'Codersite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['forum'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
