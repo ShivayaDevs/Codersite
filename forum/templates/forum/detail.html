@@ -13,6 +13,7 @@
 
   {% for ans in question.answer_set.all %}
     <p><strong>{{ ans.userID.username }}: </strong> {{ ans.answer }}</p>
+    <a href="{% url 'forum:answerUpvote' ans.id %}">+Upvote</a>&nbsp; {{ ans.upvotes }}
     <br>
   {% endfor %}
 

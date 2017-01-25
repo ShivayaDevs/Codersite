@@ -21,6 +21,7 @@ class Answer(models.Model) :
   quesID = models.ForeignKey(Question)
   answer = models.TextField()
   date = models.DateTimeField('date published')
+  upvotes = models.IntegerField(default=0)
 
   def __str__(self) :
     return self.answer

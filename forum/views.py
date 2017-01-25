@@ -24,6 +24,9 @@ class QuestionCreate(CreateView) :
   fields = ['question']
   def form_valid(self, form) :
     self.object = form.save(commit = False)
+    obj = Question.objects.get(question__icontains = self.object.question)
+    if obj :
+      return render(self.request, 'forum/dup_error.html', {'question': obj})
     self.object.userID = User.objects.get(pk = 1)
     self.object.date = datetime.now()
     self.object.save()
@@ -48,3 +51,9 @@ class AnswerCreate(CreateView) :
     self.object.quesID = Question.objects.get(pk = self.kwargs['pk'])
     self.object.save()
     return super(AnswerCreate, self).form_valid(form)
+
+def upvote(request, pk) :
+  answer = Answer.objects.get(pk = pk)
+  answer.upvotes = answer.upvotes + 1
+  answer.save()
+  return render(request, 'forum/detail.html', {'question': answer.quesID})

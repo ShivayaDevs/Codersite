@@ -1,0 +1,5 @@
+{% extends 'forum/base.html' %}
+{% block body %}
+  <p> Sorry! This question already exists! </p>
+  <h4>You can check: <a href = "{% url 'forum:detail' question.id %}">{{ question.question }} </a> </h4>
+{% endblock %}
