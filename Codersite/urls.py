@@ -20,5 +20,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^forum/', include('forum.urls', namespace = "forum")),  
     url(r'^admin/', admin.site.urls),
-    
+    url(r'^practice/', include('practice.urls')),
 ]

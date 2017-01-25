@@ -1,0 +1,18 @@
+{% extends 'practice/header.html' %}
+
+{% if question_list %}
+  <ul>
+    {% for question in question_list %}
+      <li>
+        <a href="{% url 'practice:detail' question.id %}">
+        
+          <h2>{{ question.title }}</h2><br>
+          <p>Category: {{ question.category.name }}</p>
+
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p> No questions found!!</p>
+{% endif %}
