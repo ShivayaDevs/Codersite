@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Category, Question
+from .models import Category, Question, UserSolution
 
 admin.site.register(Category)
 admin.site.register(Question)
-# TODO: Check for Question
+admin.site.register(UserSolution)

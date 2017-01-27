@@ -32,7 +32,6 @@ def execute_on(source_code, question_id):
 
   # Step 1: Compile the code
   cmd = "g++ code.cpp -o code"
-  output = """a"""
   (status, output) = commands.getstatusoutput(cmd)
   if status:
     return 2, "Compilation error: " +output

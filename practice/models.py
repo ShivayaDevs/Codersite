@@ -18,7 +18,10 @@ class Question(models.Model):
     return self.title
 
 
-class UserQuestion(models.Model):
+class UserSolution(models.Model):
   user = models.ForeignKey(User)
   question = models.ForeignKey(Question)
   solution = models.TextField()
+  status_code = models.IntegerField()
+  submitted_on = models.DateTimeField()
+
