@@ -3,8 +3,22 @@
   padding: 0;
   margin: 0;
   overflow: hidden;
+  height: 100%;
 }
 
+.main{
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  padding-bottom: 150px;
+
+}
+
+.row{
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
 .navbar-default {
     background-color: #29C568;
     padding: 0;
@@ -38,13 +52,17 @@
     overflow: hidden;
 }
 
+
 .footer{
   background-color: #29C568;
   padding: 10px;
+  bottom: 0;
+  width: 100%;
   color: #fff;
-  height: auto;
+  height: 150px;
   overflow: hidden;
   font-family: 'Montserrat', sans-serif;
+  margin: 0;
 
 }
 

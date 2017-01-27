@@ -1,8 +1,21 @@
 {% extends 'forum/base.html' %}
-{% block body %}
-<form action="" method="post">
-{% csrf_token %}
-{% include 'forum/form_template.html' %}
-<input type="submit" name="submit" value="ask question">
-
+{% block title %}Question{% endblock %}
+{% block head %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'forum/question_form.css' %}">
 {% endblock %}
+
+{% block body %}
+  
+  <h2 class="col-md-12 head">Ask Question</h2><br><br>
+  <form action="" method="post" class="qform" role="form">
+  {% csrf_token %}
+  {% include 'forum/form_template.html' %}
+  <br><br>
+  <input class="submit" type="submit" name="submit" value="Ask">
+  </form>
+
+{%endblock %}
+
+
+

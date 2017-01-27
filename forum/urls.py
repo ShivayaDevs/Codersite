@@ -12,3 +12,6 @@ urlpatterns = [
     url(r'^upvote/(?P<pk>[0-9]+)/$', views.upvote, name = "answerUpvote"),
 
 ]
+
+
+
