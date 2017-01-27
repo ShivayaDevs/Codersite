@@ -1,0 +1,16 @@
+{% extends 'practice/header.html' %}
+
+{% block content %}
+
+<h1>{{ question.title }}</h1>
+<p>{{ question.statement }}</p>
+
+<form action="{% url 'practice:submit' question.id %}" method="post">
+  {% csrf_token %}
+  
+  <textarea name="answer_input" rows="10" cols="80"></textarea>
+  <br>
+  <input type="submit" name="Submit">
+</form>
+
+{% endblock %}
