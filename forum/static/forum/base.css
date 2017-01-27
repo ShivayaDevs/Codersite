@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Montserrat|Varela+Round');
+.body{
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.navbar-default {
+    background-color: #29C568;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.navbar-custom a {
+    display: block;
+    color: #ffffff !important;
+    font-family: 'Montserrat', sans-serif !important;
+    overflow: hidden;
+
+}
+
+#myBar a:hover{
+    background-color: #2ca056;
+    overflow: hidden;
+}
+
+.navbar-brand{
+    list-style-type: none;
+    overflow: hidden;
+}
+.navbar-brand a:hover {
+    text-decoration: none;
+    overflow: hidden;
+}
+.color-white {
+    color: #ffffff
+    overflow: hidden;
+}
+
+.footer{
+  background-color: #29C568;
+  padding: 10px;
+  color: #fff;
+  height: auto;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
