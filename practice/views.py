@@ -1,8 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from django.http import HttpResponseRedirect
-from django.urls import reverse
-from .models import Category, Question
+from .models import Question
+from . import program_executor
 
 class IndexView(generic.ListView):
   template_name = 'practice/index.html'
@@ -11,29 +10,32 @@ class IndexView(generic.ListView):
   def get_queryset(self):
     return Question.objects.all()
 
-# class DetailView(generic.DetailView):
-#   model = Question
-#   template_name = 'practice/question_page.html'
-
-class ResultView(generic.DetailView):
-  model = Question
-  template_name = 'practice/result.html'
-    
 def detail(request, question_id):
   question = get_object_or_404(Question, pk=question_id)
+  code = """
+  #include <iostream>
+  using namespace std;
+  int main(){
+
+    // your code goes here
+    return 0;
+  }
+  """
   return render(request, 'practice/question_page.html', {
       'question': question,
-    }) 
+      'source_code': code,
+    })
+
 def submit(request, question_id):
   question = get_object_or_404(Question, pk=question_id)
-  answer = request.POST['answer_input']
-  return HttpResponseRedirect(reverse('practice:result', args=(question.id,)))
-
-
-
-"""
-  1. Add solved by counter
-  2. Add sort option
-  3. Add solved/not solved
-
-"""    
+  code = request.POST['answer_input']
+  result = program_executor.execute_on(code, question.id)
+  if result[0] == 0:
+    program_executor.cleanup(question.id)
+  # TODO: Store the result code in the UserQuestion mapping along with the solution
+  return render(request, 'practice/question_page.html',{
+      'question': question,
+      'result_code': result[0],
+      'result_message': result[1],
+      'source_code': code,
+  })

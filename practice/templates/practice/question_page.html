@@ -7,10 +7,18 @@
 
 <form action="{% url 'practice:submit' question.id %}" method="post">
   {% csrf_token %}
-  
-  <textarea name="answer_input" rows="10" cols="80"></textarea>
+
+  <textarea name="answer_input" rows="10" cols="80">{{ source_code }}</textarea>
   <br>
   <input type="submit" name="Submit">
 </form>
+
+{% if result_message %}
+    {% if result_code is 0 %}
+        <span style="color:green;">Yes!{{ result_message }}</span>
+    {% else %}
+        <span style="color:red;">{{ result_message }}</span>
+    {% endif %}
+{% endif %}
 
 {% endblock %}
