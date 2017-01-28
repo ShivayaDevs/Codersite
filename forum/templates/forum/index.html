@@ -20,8 +20,8 @@
       <div class="col-md-8 forum">
         <h3><b><a href="{% url 'forum:detail' ques.id %}" class="forum-title">{{ ques.question }}</a></b></h3>
         <br>
-        {# =======TO BE CHANGED ==========#}
-        <h4 class="category"> Category </h4>
+        
+        <h4 class="category">{{ques.ques_category.name}} </h4>
         <a href="{% url 'forum:detail' ques.id %}" class="read-more">View</a>
         <br>
         <hr class="rule">

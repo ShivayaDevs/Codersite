@@ -11,8 +11,8 @@
     <div class="col-md-8">
       <p class="head">{{ question.userID.username }}&nbsp;|&nbsp;{{ question.date }} </p>
       <h1>{{ question.question }}</h1>
-      {# ======== TO BE CHANGED ======= #}
-      <h4 class="category"> Category </h4>
+      
+      <h4 class="category"> {{question.ques_category.name}}</h4>
       <div class="add-answer row">
         <a href="{% url 'forum:answerAdd' question.id %}">+ Answer This Question </a>
       </div> 

@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
-from users.models import User 
+from users.models import User
+from practice.models import Category
 from django.db import models
 from django.core.urlresolvers import reverse
 
@@ -8,6 +9,7 @@ class Question(models.Model):
   question = models.TextField()
   userID = models.ForeignKey(User)
   date = models.DateTimeField('date published')
+  ques_category = models.ForeignKey(Category, related_name='%(class)s_requests_created')
 
   def __str__(self) :
     return self.question
