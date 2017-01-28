@@ -12,10 +12,15 @@ class LoginForm(AuthenticationForm):
                                widget=forms.TextInput(attrs={'class': 'form-control', 'name': 'password'}))
 
 class RegistrationForm(forms.Form):
-    username = forms.CharField(label='Username', max_length=30)
-    email = forms.EmailField(label='Email')
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput())
-    password2 = forms.CharField(label='Password (Again)',widget=forms.PasswordInput())
+    error_messages = {
+        'duplicate_username': 'Username already exists'
+    }
+    firstname = forms.CharField(label='First Name', max_length=30, widget=forms.TextInput(attrs = {'class' : 'form-control'}))
+    lastname = forms.CharField(label='Last Name', max_length=30, widget=forms.TextInput(attrs = {'class' : 'form-control'}))
+    username = forms.CharField(label='Username', max_length=30, widget=forms.TextInput(attrs = {'class' : 'form-control'}))
+    email = forms.EmailField(label='Email', max_length=30, widget=forms.TextInput(attrs = {'class' : 'form-control'}))
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'form-control', 'name': 'password1'}))
+    password2 = forms.CharField(label='Password (Again)',widget=forms.PasswordInput(attrs={'class': 'form-control', 'name': 'password2'}))
 
     def clean_password2(self):
         if 'password1' in self.cleaned_data:
@@ -28,9 +33,12 @@ class RegistrationForm(forms.Form):
     def clean_username(self):
         username = self.cleaned_data['username']
         if not re.search(r'^\w+$', username):
-            raise forms.ValidationError('Username can only contain alphanumeric characters and the underscore.')
+            raise forms.ValidationError( self.error_messages['duplicate_username'],  code='duplicate_username',)
         try:
             User.objects.get(username=username)
         except ObjectDoesNotExist:
             return username
-        raise forms.ValidationError('Username is already taken.')
+
+        raise forms.ValidationError(
+                ('That username exists in our system. Please try another.')
+            )

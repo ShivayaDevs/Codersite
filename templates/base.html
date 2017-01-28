@@ -4,7 +4,7 @@
 <title>{% block title %} {% endblock %}</title>
   {% load static %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'articles/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {% block head %}
@@ -28,15 +28,23 @@
         </div>
         <div class="collapse navbar-collapse" id="myBar">
                 <ul class="nav navbar-nav">
-                    <li class="navbar-custom"><a href="#">Dashboard</a></li>
-                    <li class="navbar-custom"><a href="#">Practice</a></li>
+                    <li class="navbar-custom"><a href="{% url 'logapp:home' %}">Dashboard</a></li>
+                    <li class="navbar-custom"><a href="">Practice</a></li>
                     <li class="navbar-custom"><a href="#">Forum</a></li>
-                    <li class="navbar-custom"><a href="#">Articles</a></li>
+                    <li class="navbar-custom"><a href="{% url 'articles:index' %}">Articles</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right" style="padding-right:20px;">
+            {% if user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-right " style="padding-right:20px;">
+                    <li class="navbar-custom"><a href="logout/" class="color-white"><span class="glyphicon glyphicon-log-in color-white"></span> Logout </a></li>
+                    <li class="navbar-custom custom-user-2"><a href="#" class="color-white "><span class="glyphicon glyphicon-user color-white"></span> {{user.username}} </a></li>
+                </ul>
+            {% else %}
+                
+                <ul class="nav navbar-nav navbar-right custom-user" style="padding-right:20px;">
                     <li class="navbar-custom"><a href="#" class="color-white"><span class="glyphicon glyphicon-user color-white"></span> Sign Up </a></li>
                     <li class="navbar-custom"><a href="#" class="color-white"><span class="glyphicon glyphicon-log-in color-white"></span> Login </a></li>
                 </ul>
+            {% endif %}
         </div>
     </nav>
   </div>
@@ -46,8 +54,8 @@
   
 </div>
 
-  <footer >
-    <div class="panel-footer footer">
+  <footer>
+    <div class="panel-footer footer" style="margin-top:100px">
       <h5>CoderSite</h5>
       <h5 align="right">Developed By: <br><br>Shilpi<br>Vagisha Nidhi<br>Yash Verma</h5>
     </div>
