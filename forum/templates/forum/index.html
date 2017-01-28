@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Forum{% endblock %}
+{% block head %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'forum/index.css' %}">
+{% endblock %}
+{% block body %}
+  <div class="col-md-12 container-fluid header-image">
+  <h1 class="entry-title">Forum</h1>
+  </div>
+
+  <div class="col-md-1"></div>
+  <div class="col-md-10 forum-main">
+    <a href="{% url 'forum:questionAdd'  %}" class="add">+ Ask Question</a>
+  </div>
+  <br><br>
+  {% for ques in all_ques %}
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8 forum">
+        <h3><b><a href="{% url 'forum:detail' ques.id %}" class="forum-title">{{ ques.question }}</a></b></h3>
+        <br>
+        
+        <h4 class="category">{{ques.ques_category.name}} </h4>
+        <a href="{% url 'forum:detail' ques.id %}" class="read-more">View</a>
+        <br>
+        <hr class="rule">
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <br><br>
+  {% endfor %}
+
+{% endblock %}

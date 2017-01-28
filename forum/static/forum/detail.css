@@ -1,0 +1,107 @@
+
+@import url('https://fonts.googleapis.com/css?family=Bitter|Poiret+One|Crimson+Text');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Montserrat|Varela+Round');
+
+h1 {
+    font-family: 'Bitter', serif;
+    overflow: hidden;
+
+}
+
+.head {
+    font-family: 'Poiret One', cursive;
+    font-size: 20px;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.mainContent {
+    font-family: 'Crimson Text', 'Poiret One', serif;
+    font-size: 25px;
+    overflow: hidden;
+}
+
+.rule {
+    
+    height: 1px;
+    background-color: #29C568;
+    overflow: hidden;
+}
+
+.short-separator{
+  width: 30%;
+  height: 1px;
+  align: center;
+  overflow: hidden;
+  
+}
+
+.category {
+    display: inline;
+    background-color: #E0E0E0;
+    border-radius: 20px;
+    padding: 8px;
+    margin-top: 50px;
+    overflow: hidden;
+}
+
+.answer{
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+  font-size: 16px;
+  overflow: hidden;
+}
+
+.upvote{
+  padding: 5px;
+  border-radius: 20px;
+  text-decoration: none;
+  background-color: #37c86c;
+  font-size: 14px;
+  color: #fff;
+  overflow: hidden;
+}
+
+.upvote:hover{
+  padding: 5px;
+  border-radius: 20px;
+  text-decoration: none;
+  background-color: #2ca056;
+  color: #fff;
+  overflow: hidden;
+}
+
+.user-detail{
+  display: inline;
+  float: right;
+  padding: 5px;
+  font-size: 14px; 
+  overflow: hidden;
+}
+
+.add-answer{
+  float: right;
+  padding: 30px;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+.add-answer a{
+  background-color: #37c86c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px;
+  overflow: hidden;
+
+}
+.add-answer a:hover{
+  text-decoration: none;
+  color: #fff;
+  background-color: #37c86c;
+  overflow: hidden;
+
+}

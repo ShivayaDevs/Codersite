@@ -1,0 +1,69 @@
+.head{
+  color: #29C568;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.qform{
+  padding: 10px;
+  margin: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+.form-label{
+  font-size: 18px;
+  padding: 5px;
+}
+
+.form-input{
+  width: 100%;
+  overflow: hidden;
+}
+
+textarea{
+  padding: 5px;
+  width: 100%;
+  height: 10em;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+textarea:focus{
+  padding: 5px;
+  outline: none !important;
+  width: 100%;
+  height: 10em;
+  border-radius: 10px;
+}
+
+.submit{
+  text-decoration: none;
+  background-color: #29C568;
+  color: #fff;
+  margin: 5px;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 10px;
+  border-color: #29C568;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.submit:hover{
+  background-color:  #2ca056;
+  text-decoration: none;
+  color: #fff;
+  margin: 5px;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 10px;
+  border-color: #29C568;
+  font-family: 'Montserrat', sans-serif;
+}

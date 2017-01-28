@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Detail{% endblock %}
+{% block head %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'forum/detail.css' %}">
+{% endblock %}
+
+{% block body %}
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <p class="head">{{ question.userID.username }}&nbsp;|&nbsp;{{ question.date }} </p>
+      <h1>{{ question.question }}</h1>
+      
+      <h4 class="category"> {{question.ques_category.name}}</h4>
+      <div class="add-answer row">
+        <a href="{% url 'forum:answerAdd' question.id %}">+ Answer This Question </a>
+      </div> 
+      <hr class="rule">
+      <br><br>
+      {% for ans in question.answer_set.all %}
+        <div class="answer">
+          <p>{{ ans.answer }}</p> <br>
+          <div class="answer-foot">
+            <a href="{% url 'forum:answerUpvote' ans.id %}" class="upvote">+ Upvote</a>&nbsp;<b>{{ans.upvotes}}</b>
+            <h4 class="user-detail">{{ ans.userID.username }}&nbsp;|&nbsp;{{ ans.date}}</h4>
+            <hr class="short-separator">
+          </div>
+        </div>
+        <br><br>
+      {% endfor %}           
+    </div>
+
+    <div class="col-md-2"></div>
+  </div>
+
+{% endblock %}
+
+
+{#   <h1>FORUM</h1>
+  <h3>{{ question.question }}</h3>
+  <h4>&nbsp; &nbsp; -{{ question.userID.username }}</h4>
+
+  <a href = "{% url 'forum:answerAdd' question.id %}"> +Answer This Ques </a>&nbsp;
+  <a href = "{% url 'forum:questionAdd'  %}"> +Ask Another Question</a>
+
+  {% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+  {% endif %}
+
+  {% for ans in question.answer_set.all %}
+    <p><strong>{{ ans.userID.username }}: </strong> {{ ans.answer }}</p>
+    <a href="{% url 'forum:answerUpvote' ans.id %}">+Upvote</a>&nbsp; {{ ans.upvotes }}
+    <br>
+  {% endfor %} #}

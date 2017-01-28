@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Detail{% endblock %}
+{% block head %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'forum/dup_error.css' %}">
+{% endblock %}
+{% block body %}
+  <div class="col-md-1"></div>
+  <div class="col-md-10 display">
+   <p class="error"> Sorry! This question already exists! </p>
+  <h4 class="alter">You can check: <a href = "{% url 'forum:detail' question.id %}">{{ question.question }} </a> </h4>
+  </div>
+  <div class="col-md-1"></div>
+
+
+{% endblock %}
+
