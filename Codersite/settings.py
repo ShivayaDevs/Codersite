@@ -33,7 +33,6 @@ LOGIN_REDIRECT_URL = '/' # It means home view
 # Application definition
 
 INSTALLED_APPS = [
-    'users',
     'articles',
     'forum',
     'practice',

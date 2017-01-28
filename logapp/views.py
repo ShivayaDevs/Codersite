@@ -11,7 +11,7 @@ from django.http import HttpResponseRedirect
 
 @login_required(login_url="login/")
 def home(request):
-    return render(request,"home.html")
+    return render(request,"logapp/home.html")
 
 
 def register_page(request):
@@ -23,4 +23,4 @@ def register_page(request):
         
     form = RegistrationForm()
     variables = RequestContext(request, {'form': form})
-    return render_to_response('register.html',variables)
+    return render_to_response('logapp/register.html',variables)

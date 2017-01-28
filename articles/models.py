@@ -1,14 +1,14 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from users.models import User
+from django.contrib.auth.models import User
 
 
 # Create your models here.
 
 class Article(models.Model) :
-    content = models.TextField(null = False, default = "text")
-    title = models.TextField(null = False, default = "text")
+    content = models.TextField(null = False)
+    title = models.TextField(null = False)
     user = models.ForeignKey(User, default=True)
     date_added = models.DateTimeField(null = False, verbose_name = "date_added")
 
