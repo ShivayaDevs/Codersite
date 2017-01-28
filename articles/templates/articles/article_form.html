@@ -1,9 +1,14 @@
-{% extends 'articles/base.html'%}
+{% extends 'articles/base.html' %}
+{% block title %}Article{% endblock %}
+{% block head %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'articles/article_form.css' %}">
+{% endblock %}
 
 {% block body %}
-
 <form action = "" method="post" >
     {% csrf_token %}
+    
     <div class="form-group">
         <label for = "title">Title</label>
         <input type="text" name="title" id = "title" class="form-control" placeholder="Enter Title of the article" >

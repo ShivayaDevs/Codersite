@@ -1,13 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-    <title>Article</title>
+<title>{% block title %} {% endblock %}</title>
+  {% load static %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'articles/base.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+    {% block head %}
+    {% endblock %}
+
 <body>
-{% block body %}
-{% endblock %}
+<div class="main">
+  <div class="container-fluid" style="padding: 0px">
+    <nav class="navbar-static-top navbar-default">
+        <div class="navbar-header navbar-custom">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            <ul class="navbar-brand" id = "brand">
+                <li class="navbar-custom"><a href="#" class="color-white"><span class="glyphicon glyphicon-leaf color-white"></span> CoderSite </a></li>
+            </ul>
+            
+        </div>
+        <div class="collapse navbar-collapse" id="myBar">
+                <ul class="nav navbar-nav">
+                    <li class="navbar-custom"><a href="#">Dashboard</a></li>
+                    <li class="navbar-custom"><a href="#">Practice</a></li>
+                    <li class="navbar-custom"><a href="#">Forum</a></li>
+                    <li class="navbar-custom"><a href="#">Articles</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" style="padding-right:20px;">
+                    <li class="navbar-custom"><a href="#" class="color-white"><span class="glyphicon glyphicon-user color-white"></span> Sign Up </a></li>
+                    <li class="navbar-custom"><a href="#" class="color-white"><span class="glyphicon glyphicon-log-in color-white"></span> Login </a></li>
+                </ul>
+        </div>
+    </nav>
+  </div>
+
+  {% block body %}
+  {% endblock %}
+  
+</div>
+
+  <footer >
+    <div class="panel-footer footer">
+      <h5>CoderSite</h5>
+      <h5 align="right">Developed By: <br><br>Shilpi<br>Vagisha Nidhi<br>Yash Verma</h5>
+    </div>
+  </footer>
+
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </body>
 </html>
+</head>
+<body>

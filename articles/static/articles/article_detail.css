@@ -1,0 +1,36 @@
+
+@import url('https://fonts.googleapis.com/css?family=Bitter|Poiret+One|Crimson+Text');
+
+h1 {
+    font-family: 'Bitter', serif;
+
+}
+
+.head {
+    font-family: 'Poiret One', cursive;
+    font-size: 28px;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.mainContent {
+    font-family: 'Crimson Text', 'Poiret One', serif;
+    font-size: 25px;
+    padding: 30px;
+    margin-bottom: 15%;
+}
+
+hr {
+    
+    height: 1px;
+    background-color: #29C568;
+}
+
+.category {
+    display: inline;
+    background-color: #E0E0E0;
+    border-radius: 20px;
+    padding: 8px;
+    margin-top: 50px;
+}
