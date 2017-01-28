@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^forum/', include('forum.urls', namespace = "forum")),  
     url(r'^admin/', admin.site.urls),
-    
+    url(r'^practice/', include('practice.urls')),
 ]
 
 if settings.DEBUG :
