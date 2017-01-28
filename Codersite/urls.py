@@ -17,14 +17,16 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from django.contrib.auth import views
 from logapp.forms import LoginForm
+from logapp.views import register_page
 
 
 urlpatterns = [
     url(r'^articles/', include('articles.urls')),
     url(r'^admin/', admin.site.urls),
-#     url(r'^login/', views.login, {'template_name': 'login.html'}),
 
     url(r'', include('logapp.urls')),
+    url(r'^register/', register_page, name = 'regis'),
+
     url(r'^login/$', views.login, {'template_name': 'login.html', 'authentication_form' : LoginForm}, name = 'django.contrib.auth.views.login'),
 
     url(r'^logout/$', views.logout, {'next_page': '/login'}),  

@@ -36,15 +36,3 @@ class ArticleCreate(CreateView) :
         self.object.save()
         return super(ArticleCreate, self).form_valid(form)
 
-
-
-
-# def createArticle(request) :
-
-#     article = Article()
-#     article.user = self.request.user
-#     article.title = self.request.POST['title']
-#     article.content = self.request.POST['content']
-#     article.date_added = datetime.today()
-#     article.save()
-

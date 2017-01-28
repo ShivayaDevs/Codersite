@@ -7,4 +7,5 @@ app_name = 'logapp'
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
+    # url(r'^register/$', views.register_page, name='register'),
 ]
