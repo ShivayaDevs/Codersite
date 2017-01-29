@@ -22,15 +22,14 @@ class DetailView(generic.DetailView) :
 
 class QuestionCreate(CreateView) :
   model = Question
-  fields = ['question']
+  fields = ['question', 'ques_category']
   def form_valid(self, form) :
     self.object = form.save(commit = False)
-    try :
+    try: 
       obj = Question.objects.get(question__icontains = self.object.question)
-    
-    except :
+    except: 
       obj = None
-      
+
     if obj :
       return render(self.request, 'forum/dup_error.html', {'question': obj})
     self.object.userID = User.objects.get(pk = 1)
