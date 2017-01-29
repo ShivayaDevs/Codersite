@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.views.generic import View
 from datetime import datetime
-from users.models import User
+from django.contrib.auth.Model import User
 # Create your views here.
 class IndexView(generic.ListView) :
   template_name = 'forum/index.html'
