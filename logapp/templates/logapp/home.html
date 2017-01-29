@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% block title%}Register{% endblock %}
+{% block head %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'logapp/home.css' %}">
+{% endblock %}
+
+
+{% block body %}
+
+ <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <div class="panel panel-default" style="margin-top: 100px;">
+                <div class="panel-heading" style=" height:40px; font-size: 20px">Basic Profile</div>
+                <div class="panel-body">
+                    <img style="float:left; margin-right: 15px; margin-top: 5px; " width="77px" src="https://cdn4.iconfinder.com/data/icons/green-shopper/1068/user.png" class="img-rounded">
+                    <h4><b>{{user.first_name}}&nbsp{{ user.last_name}}</b></h4>
+                    <p>{{ user.username }}</p>
+                    <p><a href="#" style="text-decoration: none;">Articles Contributed &nbsp<span class="badge">5</span></a></p>
+                    <p><a href="#" style="text-decoration: none; margin-left: 90px">Questions Asked &nbsp<span class="badge">3</span></a></p>
+                    <p><a href="#" style="text-decoration: none; margin-left: 90px">Answers Submitted &nbsp<span class="badge">9</span></a></p>
+                </div>
+            </div>
+            <div class="panel panel-default" style="margin-top: 30px; padding-left: 0;">
+                <div class="panel-heading" style=" height:40px; font-size: 20px;;">Progress Report</div>
+                <div class="panel-body">
+                    <ul class="list-group" id="report_ul">
+                        <li class="list-group-item" style="height: 40px;">
+                            <span class="badge progress-bar-info">20/30</span>
+                            <i><span class="glyphicon glyphicon-ok"></span></i>&nbsp
+                            Solved Questions
+                        </li>
+                        <li class="list-group-item" style="height: 40px;">
+                            <span class="badge progress-bar-success">20/30</span>
+                            <i><span class="glyphicon glyphicon-check"></span></i>&nbsp
+                            Accepted Solutions
+                        </li>
+                        <li class="list-group-item" style="height: 40px;">
+                            <span class="badge progress-bar-danger">20/30</span>
+                            <i><span class="glyphicon glyphicon-remove"></span></i>&nbsp
+                            Wrong Answer
+                        </li>
+                        <li class="list-group-item" style="height: 40px;">
+                            <span class="badge progress-bar-danger">20/30</span>
+                            <i><span class="glyphicon glyphicon-cog"></span></i>&nbsp
+                            Compilation Error
+                        </li>
+                        <li class="list-group-item" style="height: 40px;">
+                            <span class="badge progress-bar-danger">20/30</span>
+                            <i><span class="glyphicon glyphicon-exclamation-sign"></span></i>&nbsp
+                            Runtime Error
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default" style="margin-top: 100px;">
+                <div class="panel-heading" style=" height:40px; font-size: 20px">Top Questions For Practice</div>
+                <ul class="list-group">
+                    <a href="#" class="list-group-item">
+                        <span class="badge">Category</span>
+                        <b>Repeated Substring Pattern</b>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">Category</span>
+                        <b>Repeated Substring Pattern</b>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">Category</span>
+                        <b>Repeated Substring Pattern</b>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">Category</span>
+                        <b>Repeated Substring Pattern</b>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">Category</span>
+                        <b>Repeated Substring Pattern</b>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">Category</span>
+                        <b>Repeated Substring Pattern</b>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">Category</span>
+                        <b>Repeated Substring Pattern</b>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">Category</span>
+                        <b>Repeated Substring Pattern</b>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">Category</span>
+                        <b>Repeated Substring Pattern</b>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">Category</span>
+                        <b>Repeated Substring Pattern</b>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">Category</span>
+                        <b>Repeated Substring Pattern</b>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="badge">Category</span>
+                        <b>Repeated Substring Pattern</b>
+                    </a>
+                    
+                </ul>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+
+{% endblock %}
+

@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL = '/' # It means home view
+
 
 # Application definition
 
@@ -34,6 +36,7 @@ INSTALLED_APPS = [
     'articles',
     'forum',
     'practice',
+    'logapp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -57,7 +60,11 @@ ROOT_URLCONF = 'Codersite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+<<<<<<< HEAD
         'DIRS': ['templates'],
+=======
+        'DIRS': ["templates"], 
+>>>>>>> vagisha/branch
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,6 +129,11 @@ USE_TZ = True
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/static/',
+]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,"static"),
+    '/static',
 ]
 
 STATIC_URL = '/static/'

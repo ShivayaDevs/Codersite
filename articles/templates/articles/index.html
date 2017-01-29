@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Articles{% endblock %}
+{% block head %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'articles/index.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<div class="col-md-12 container-fluid header-image">
+  <h1 class="entry-title">Lets Read..</h1>
+</div>
+
+<div class="col-md-1"></div>
+<div class="col-md-10 article-main">
+  <a href="{% url 'articles:article-add' %}" class="add">+ Add Article</a>
+</div>
+<br><br>
+{% for article in all_articles %}
+  <br>
+  <div class="col-md-12">
+    <div class="col-md-2"></div>
+
+      <div class="col-md-8 article">
+        <h3><b><a href="{% url 'articles:detail' article.id %}" class="article-title">{{ article.title }}</a></b></h3>
+      
+        <p>{{ article.content | slice:":500"}}..</p>
+      
+       <a href="{% url 'articles:detail' article.id %}" class="read-more">Read More</a>
+        <br>
+        <hr class="rule">
+        <br>
+      </div>
+    <div class="col-md-2"></div>
+  </div>
+  <br><br>
+{% endfor %}
+<br><br>
+{% endblock %}
+

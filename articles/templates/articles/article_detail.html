@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Article{% endblock %}
+{% block head %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'articles/article_detail.css' %}">
+{% endblock %}
+
+{% block body %}
+  
+  <div class="col-md-12">
+    <div class="col-md-2"> </div>
+
+    <div class="col-md-8">
+      <p class="head">{{article.user.username}}&nbsp;|&nbsp; {{article.date_added}}</p>
+      <h1>{{article.title}}</h1>
+      <h4 class="category"> Category </h4>
+      <hr>
+      <div class= "mainContent" >{{article.content}}</div>
+    </div>
+    <br><br>
+    <div class="col-md-2"></div>
+  </div>
+  <br><br>
+{% endblock %}
+

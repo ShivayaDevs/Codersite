@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+<<<<<<< HEAD
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings 
@@ -28,3 +29,21 @@ urlpatterns = [
 if settings.DEBUG :
   urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
   urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+=======
+from django.conf.urls import url,include
+from django.contrib import admin
+from django.contrib.auth import views
+from logapp.forms import LoginForm
+from logapp.views import register_page
+
+
+urlpatterns = [
+    url(r'^articles/', include('articles.urls')),
+    url(r'^admin/', admin.site.urls),
+
+    url(r'', include('logapp.urls')),
+    url(r'^register/', register_page, name = 'register'),
+    url(r'^login/$', views.login, {'template_name': 'logapp/login.html', 'authentication_form' : LoginForm}, name = 'django.contrib.auth.views.login'),
+    url(r'^logout/$', views.logout, {'next_page': '/login'}),  
+ ]
+>>>>>>> vagisha/branch
