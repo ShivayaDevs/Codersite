@@ -1,0 +1,39 @@
+.navbar{
+    -webkit-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.05);
+    -moz-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.05);
+    box-shadow: 0 8px 6px -6px rgba(0,0,0,0.05);
+    background-color: white;
+    /*color: #14c07b; */
+}
+.navbar-brand{
+  color: #14c07b;
+}
+
+body{
+  padding-top: 50px;
+}
+
+#big-logo-bg,#we{
+  background-color: #829192;
+  /*background-color: #1a237e;*/
+}
+img{
+  display: block;
+  margin:auto;
+}
+.row{
+  margin-left: 0;
+  margin-right: 0;
+  padding-bottom: 0;
+}
+.sections{
+  text-align: center;
+  padding: 10px;
+}
+#footer-div{
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  background-color: #ECEFF1;
+  margin-bottom: 0;
+}

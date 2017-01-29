@@ -1,20 +1,40 @@
-{% extends 'practice/header.html' %}
+{% extends 'base2.html' %}
+
+{% block head %}
+{% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/practice_home.css' %}">
+{% endblock %}
 
 {% block content %}
-  {% if question_list %}
-    <ul>
-      {% for question in question_list %}
-        <li>
-          <a href="{% url 'practice:detail' question.id %}">
-          
-            <h2>{{ question.title }}</h2>
-            Category: {{ question.category.name }}
+<img src="{% static 'images/bulbs.jpg' %}" width="100%">
+<div class="container">
+  <br>
+  <h3>Practice</h3>
 
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
+  {% if question_list %}
+
+  <ul class="no-bullets">
+
+    {% for question in question_list %}
+    <li>
+      <a href="{% url 'practice:detail' question.id %}">
+      <div class="panel panel-default question-box">
+
+        <h3>{{ question.title }}
+          <small><span class="label label-default">{{ question.category.name }}</span></small>
+        </h3>
+        <p class="less-desc">{{ question.statement}}</p>
+      </div>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+
   {% else %}
-    <p> No questions found!!</p>
+  <div class="alert alert-danger" role="alert">
+    No Questions found!
+  </div>
   {% endif %}
+</div>
+
 {% endblock %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-with, initial-scale=1, user-scalable=no">
+  <title>{% block title %}{% endblock %}</title>
+  {% load static %}
+  <!-- bootstrap.min -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/mine.css' %}">
+  <link rel="icon" href="{% static 'images/logo.png' %}">
+
+  {% block head %}
+  {% endblock %}
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <span class="glyphicon glyphicon-leaf" style="color: #14c07b;"></span> Codersite
+          </a>
+      </div>
+      <div class="navbar-collapse collapse" >
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Practice</a></li>
+          <li><a href="#">Tutorials</a></li>
+          <li><a href="#">Community</a></li>
+          {% if user.is_authenticated %}
+          <li class="navbar-custom"><a href="{% url 'logout' %}" class="color-white">
+              <span class="glyphicon glyphicon-log-in color-white"></span> Logout {{user.username}}</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  {% block content %}
+  {% endblock %}
+
+</body>
+</html>
