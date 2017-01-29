@@ -16,9 +16,6 @@ class IndexView(generic.ListView) :
     def get_queryset(self) :
         return Article.objects.all()
 
-    def get_absolute_url(self) :
-        return reverse('articles:detail', kwargs = { 'pk' : self.pk })
-
 class DetailView(generic.DetailView) :
     model = Article
     template_name = 'articles/article_detail.html'
@@ -26,7 +23,7 @@ class DetailView(generic.DetailView) :
 class ArticleCreate(CreateView) :
     model = Article
     # What fields needed
-    fields = ['title','content']
+    fields = ['title','content', 'category']
     success_url = reverse_lazy('logapp:home')
 
     def form_valid(self, form):

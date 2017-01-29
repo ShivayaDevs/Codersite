@@ -32,7 +32,6 @@ class QuestionCreate(CreateView) :
     if obj :
       return render(self.request, 'forum/dup_error.html', {'question': obj})
     self.object.userID = User.objects.get(pk = 1)
-    self.objects.ques_category = Category.objects.get(pk = 1)
     self.object.date = datetime.now()
     self.object.save()
     return super(QuestionCreate, self).form_valid(form)
