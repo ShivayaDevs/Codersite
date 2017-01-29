@@ -60,11 +60,8 @@ ROOT_URLCONF = 'Codersite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-<<<<<<< HEAD
         'DIRS': ['templates'],
-=======
-        'DIRS': ["templates"], 
->>>>>>> vagisha/branch
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
