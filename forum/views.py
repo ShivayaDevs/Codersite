@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login
 from django.views.generic import View
 from datetime import datetime
 from django.contrib.auth.models import User
+from practice.models import Category
 # Create your views here.
 class IndexView(generic.ListView) :
   template_name = 'forum/index.html'
@@ -24,11 +25,17 @@ class QuestionCreate(CreateView) :
   fields = ['question']
   def form_valid(self, form) :
     self.object = form.save(commit = False)
-    obj = Question.objects.get(question__icontains = self.object.question)
+    try :
+      obj = Question.objects.get(question__icontains = self.object.question)
+    
+    except :
+      obj = None
+      
     if obj :
       return render(self.request, 'forum/dup_error.html', {'question': obj})
     self.object.userID = User.objects.get(pk = 1)
     self.object.date = datetime.now()
+    self.object.ques_category = Category.objects.get(pk = 1)
     self.object.save()
     return super(QuestionCreate, self).form_valid(form)
 

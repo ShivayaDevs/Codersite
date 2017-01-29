@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse_lazy
 from .models import Article
 from django.contrib.auth.models import User
 from django.utils.timezone import datetime
+from practice.models import Category
 
 # Create your views here.
 
@@ -31,6 +32,7 @@ class ArticleCreate(CreateView) :
 
     def form_valid(self, form):
         self.object = form.save(commit = False)
+        self.object.category = Category.objects.get(pk = 1)
         self.object.date_added = datetime.now()
         self.user = self.request.user
         self.object.save()
