@@ -15,7 +15,7 @@
   </div>
   <br><br>
   {% for ques in all_ques %}
-    <div class="row">
+    <div class="row" style="margin-top:0px;">
       <div class="col-md-2"></div>
       <div class="col-md-8 forum">
         <h3><b><a href="{% url 'forum:detail' ques.id %}" class="forum-title">{{ ques.question }}</a></b></h3>

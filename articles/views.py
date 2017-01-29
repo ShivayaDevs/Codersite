@@ -6,6 +6,7 @@ from .models import Article
 from django.contrib.auth.models import User
 from django.utils.timezone import datetime
 from practice.models import Category
+from django.forms import ModelForm, TextInput
 
 # Create your views here.
 
@@ -27,7 +28,11 @@ class DetailView(generic.DetailView) :
 class ArticleCreate(CreateView) :
     model = Article
     # What fields needed
-    fields = ['title','content']
+    fields = ['title','content','category']
+    widgets = {
+            'title': TextInput(attrs={'class': 'title'}),
+            'content': TextInput(attrs={'class': "content"}),
+            }
     success_url = reverse_lazy('logapp:home')
 
     def form_valid(self, form):
