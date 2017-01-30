@@ -3,6 +3,7 @@ from .models import Question, Answer
 
 
 class QuestionForm(forms.ModelForm):
+
   class Meta:
     model = Question
     fields = ['question', 'ques_category', ]
