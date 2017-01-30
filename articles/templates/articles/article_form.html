@@ -14,7 +14,15 @@
         <div class="panel-body">
             <form action="" method="post" role="form">
                 {% csrf_token %}
-                {% include 'articles/form-template.html' %}
+                {% for field in form %}
+
+                <span>{{ field.errors }}</span>
+                <div>
+                    <label class="form-label">{{ field.label_tag }}</label>
+                    <div>{{ field }}</div>
+                </div>
+
+                {% endfor %}
                 <br><br>
                 <input class="btn btn-default" type="submit" name="submit" value="Submit">
             </form>

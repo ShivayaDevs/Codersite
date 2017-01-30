@@ -42,3 +42,4 @@ class RegistrationForm(forms.Form):
         raise forms.ValidationError(
                 ('That username exists in our system. Please try another.')
             )
+

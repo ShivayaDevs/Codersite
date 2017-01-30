@@ -28,7 +28,7 @@ h1 {
 .rule {
     
     height: 1px;
-    background-color: #29C568;
+    background-color: #0288d1;
     overflow: hidden;
 }
 
@@ -56,24 +56,6 @@ h1 {
   overflow: hidden;
 }
 
-.upvote{
-  padding: 5px;
-  border-radius: 20px;
-  text-decoration: none;
-  background-color: #37c86c;
-  font-size: 14px;
-  color: #fff;
-  overflow: hidden;
-}
-
-.upvote:hover{
-  padding: 5px;
-  border-radius: 20px;
-  text-decoration: none;
-  background-color: #2ca056;
-  color: #fff;
-  overflow: hidden;
-}
 
 .user-detail{
   display: inline;
@@ -89,19 +71,6 @@ h1 {
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
 }
-.add-answer a{
-  background-color: #37c86c;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  padding: 10px;
-  overflow: hidden;
-
-}
-.add-answer a:hover{
-  text-decoration: none;
-  color: #fff;
-  background-color: #37c86c;
-  overflow: hidden;
-
+a:hover{
+    text-decoration:none;
 }
