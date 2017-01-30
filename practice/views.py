@@ -5,7 +5,7 @@ from .models import Question, UserSolution
 from . import program_executor
 
 class IndexView(generic.ListView):
-  template_name = 'practice/indexOLD.html'
+  template_name = 'practice/index.html'
   context_object_name = 'question_list'
 
   def get_queryset(self):

@@ -23,9 +23,9 @@
       <div class="navbar-collapse collapse" >
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Practice</a></li>
-          <li><a href="#">Tutorials</a></li>
-          <li><a href="#">Community</a></li>
+          <li><a href="{% url 'practice:index' %}">Practice</a></li>
+          <li><a href="{% url 'articles:index' %}">Tutorials</a></li>
+          <li><a href="{% url 'forum:index' %}">Community</a></li>
           {% if user.is_authenticated %}
           <li class="navbar-custom"><a href="{% url 'logout' %}" class="color-white">
               <span class="glyphicon glyphicon-log-in color-white"></span> Logout {{user.username}}</a>

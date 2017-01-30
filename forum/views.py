@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 from practice.models import Category
 # Create your views here.
 class IndexView(generic.ListView) :
-  template_name = 'forum/indexOLD.html'
+  template_name = 'forum/index.html'
   context_object_name = 'all_ques'
 
   def get_queryset(self) :
