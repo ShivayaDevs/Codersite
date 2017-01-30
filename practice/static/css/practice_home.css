@@ -10,11 +10,5 @@
   list-style-type: none;
 }
 .less-desc{
-  text-overflow: ellipsis;
-  line-height: 1.8em;
-  max-height: 3.6em;
-  overflow: hidden;
-  display: block;
-  word-wrap: break-word;
   color: black;
 }

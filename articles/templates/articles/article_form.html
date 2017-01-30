@@ -1,21 +1,26 @@
-{% extends 'base.html' %}
-{% block title %}Article{% endblock %}
-{% block head %}
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'articles/article_form.css' %}">
-{% endblock %}
+{% extends 'base2.html' %}
+{% block title %}Add an article{% endblock %}
 
-{% block body %}
+{% load static %}
 
-<h2 class="col-md-12 head">Add an Article</h2><br><br>
-  <form action="" method="post" class="qform" role="form">
-  {% csrf_token %}
-  {% include 'articles/form-template.html' %}
-  <br><br>
-  <input class="submit" type="submit" name="submit" value="Submit">
-  </form>
-
-
+{% block content %}
+<br>
+<div class="container">
+    <h2>Add an Article</h2>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <strong>Enter the article </strong>
+        </div>
+        <div class="panel-body">
+            <form action="" method="post" role="form">
+                {% csrf_token %}
+                {% include 'articles/form-template.html' %}
+                <br><br>
+                <input class="btn btn-default" type="submit" name="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 

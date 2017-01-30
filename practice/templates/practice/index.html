@@ -23,7 +23,7 @@
         <h3>{{ question.title }}
           <small><span class="label label-default">{{ question.category.name }}</span></small>
         </h3>
-        <p class="less-desc">{{ question.statement}}</p>
+        <p class="less-desc">{{ question.statement | slice:":200"}}...</p>
       </div>
       </a>
     </li>
