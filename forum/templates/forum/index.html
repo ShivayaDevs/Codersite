@@ -26,7 +26,7 @@
             <a href="{% url 'forum:detail' question.id %}">
                 <div class="panel panel-default question-box">
 
-                    <h3>{{ question.title }}
+                    <h3>{{ question.question }}
                         <small><span class="label label-default">{{ question.ques_category.name }}</span></small>
                     </h3>
                     <!--<p class="less-desc">{{ article.content | slice:":500" }}..</p>-->
@@ -42,5 +42,10 @@
     </div>
     {% endif %}
 </div>
+
+<script>
+  $('li.active').removeClass('active');
+  $('#forum-tab').addClass('active');
+</script>
 
 {% endblock %}

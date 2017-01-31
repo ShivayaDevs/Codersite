@@ -58,3 +58,16 @@ img{
   -o-transition: height 0.6s ease;
   transition: height 0.6s ease;
 }
+a:hover{
+    text-decoration:none;
+}
+
+.clickableCard:hover{
+    text-decoration:none;
+}
+clickableCard:link{
+    color: black;
+}
+card-div{
+    color:black;
+}

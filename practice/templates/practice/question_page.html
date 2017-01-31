@@ -3,40 +3,46 @@
 {% block content %}
 <br>
 <div class="container">
-  <h2>{{ question.title }}</h2>
-  <p>
-    {{ question.statement }}
-  </p>
+    <h2>{{ question.title }}</h2>
+    <p>
+        {{ question.statement }}
+    </p>
 
-  <form action="{% url 'practice:submit' question.id %}" method="post" >
+    <form action="{% url 'practice:submit' question.id %}" method="post">
 
-    {% csrf_token %}
+        {% csrf_token %}
 
-    <div class="panel panel-default">
-      <div class="panel-heading" >
-          <strong>Answer </strong>
-          <select class="form-control">
-            <option>C++</option>
-            <option>Java</option>
-            <option>Python</option>
-          </select>
-      </div>
-      <div class="panel-body">
-        <textarea class="form-control" name="answer_input" rows="13" cols="80">{{ source_code}}</textarea>
-      </div>
-      </div>
-      {% if result_message %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>Answer </strong>
+                <select class="form-control">
+                    <option>C++</option>
+                    <option>Java</option>
+                    <option>Python</option>
+                </select>
+            </div>
+            <div class="panel-body">
+                <textarea class="form-control" name="answer_input" rows="13" cols="80">{{ source_code}}</textarea>
+            </div>
+        </div>
+        {% if result_message %}
         {% if result_code is not 0 %}
-          <div class="alert alert-danger" role="alert" style="float: left;">
+        <div class="alert alert-danger" role="alert" style="float: left;">
             {{ result_message }}
-          </div>
+        </div>
         {% else %}
-          <div class="alert alert-success" role="alert" style="float: left;">
+        <div class="alert alert-success" role="alert" style="float: left;">
             Correct answer!
-          </div>
+        </div>
         {% endif %}
-      {% endif %}
-      <input class="btn btn-primary" type="submit" name="Submit" style="float:right;">
+        {% endif %}
+        <input class="btn btn-primary" type="submit" name="Submit" style="float:right;">
     </form>
-  </div>
+</div>
+
+<script>
+  $('li.active').removeClass('active');
+  $('#practice-tab').addClass('active');
+
+</script>
 {% endblock %}

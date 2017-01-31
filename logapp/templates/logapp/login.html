@@ -20,17 +20,18 @@
             </div>
             <div class="panel-body">
                 <form method="post" action="{% url 'django.contrib.auth.views.login' %}">
-                {% csrf_token %}
+                    {% csrf_token %}
                     <div class="form-group">
                         <label for="email_input">User Name</label>
                         <input type="text" class="form-control" name="username" id="email_input" placeholder="Username">
                     </div>
                     <div class="form-group">
                         <label for="pwd_input">Password</label>
-                        <input type="password" class="form-control" name="password" id="pwd_input" placeholder="Password">
+                        <input type="password" class="form-control" name="password" id="pwd_input"
+                               placeholder="Password">
                     </div>
                     <button type="submit" class="btn btn-default">Sign in</button>
-                    <input type="hidden" name="next" value="{{ next }}" />
+                    <input type="hidden" name="next" value="{{ next }}"/>
                     <br><br>
                 </form>
             </div>
@@ -48,32 +49,38 @@
 <div class="row">
 
     <div class="container col-md-4 ">
-        <div class="panel panel-default sections">
-            <img src="{% static 'images/practice_lamp.svg'%}" width="30%">
-            <h3>Practice</h3>
-            <p>Try out exciting problems and be a pro.</p>
-        </div>
+        <a href="{% url 'practice:index' %}" class="clickableCard">
+            <div class="panel panel-default sections" class="card-div">
+                <img src="{% static 'images/practice_lamp.svg'%}" width="30%">
+                <h3>Practice</h3>
+                <p>Try out exciting problems and make yourself perfect!</p>
+            </div>
+        </a>
     </div>
 
     <div class="container col-md-4 ">
-        <div class="panel panel-default sections">
-            <img src="{% static 'images/learn_bookshelf.svg'%}" width="30%">
-            <h3>Learn</h3>
-            <p>Access articles written by experienced professionals.</p>
-        </div>
+        <a href="{% url 'articles:index' %}" class="clickableCard">
+            <div class="panel panel-default sections">
+                <img src="{% static 'images/learn_bookshelf.svg'%}" width="30%">
+                <h3>Learn</h3>
+                <p>Access articles written by experienced professionals.</p>
+            </div>
+        </a>
     </div>
 
     <div class="container col-md-4 ">
-        <div class="panel panel-default sections">
-            <img src="{% static 'images/ask_chat.svg'%}" width="30%">
-            <h3>Ask &amp; Answer</h3>
-            <p>Visit the community forums and share knowledge.</p>
-        </div>
+        <a href="{% url 'forum:index' %}" class="clickableCard">
+            <div class="panel panel-default sections">
+                <img src="{% static 'images/ask_chat.svg'%}" width="30%">
+                <h3>Ask &amp; Answer</h3>
+                <p>Visit the community forums and share knowledge.</p>
+            </div>
+        </a>
     </div>
 </div>
 <div class="row">
     <div class="panel panel-default" id="footer-div">
-        <address>
+        <address style="float:left;">
             <h2><span class="glyphicon glyphicon-leaf" style="color: #14c07b;"></span> Codersite</h2>
             <small>
                 Web Technologies Project<br>
@@ -81,7 +88,18 @@
                 Copyright (c) DTU
             </small>
         </address>
+        <!--<div class="container" style="float:right;">
+            <small>Developers:</small><br>
+            Shilpi<br>
+            Vagisha<br>
+            Yash
+        </div>-->
     </div>
 </div>
+
+<script>
+  $('li.active').removeClass('active');
+  $('#home-tab').addClass('active');
+</script>
 
 {% endblock %}

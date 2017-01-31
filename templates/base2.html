@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="{% static 'css/mine.css' %}">
   <link rel="icon" href="{% static 'images/logo.png' %}">
 
+  <script src="{% static 'js/jquery.min.js' %}"></script>
   {% block head %}
   {% endblock %}
 </head>
@@ -22,10 +23,10 @@
       </div>
       <div class="navbar-collapse collapse" >
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="{% url 'practice:index' %}">Practice</a></li>
-          <li><a href="{% url 'articles:index' %}">Tutorials</a></li>
-          <li><a href="{% url 'forum:index' %}">Community</a></li>
+          <li class="active" id="home-tab"><a href="{% url 'logapp:home'%}">Home</a></li>
+          <li class id="practice-tab"><a href="{% url 'practice:index' %}">Practice</a></li>
+          <li id="article-tab"><a href="{% url 'articles:index' %}">Tutorials</a></li>
+          <li id="forum-tab"><a href="{% url 'forum:index' %}">Community</a></li>
           {% if user.is_authenticated %}
           <li class="navbar-custom"><a href="{% url 'logout' %}" class="color-white">
               <span class="glyphicon glyphicon-log-in color-white"></span> Logout {{user.username}}</a>
@@ -38,6 +39,6 @@
 
   {% block content %}
   {% endblock %}
-
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>
