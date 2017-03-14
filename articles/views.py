@@ -9,7 +9,7 @@ from practice.models import Category
 from django.forms import ModelForm, TextInput
 
 # Create your views here.
-
+from .forms import ArticleForm
 # Return All Articles
 class IndexView(generic.ListView) :
     template_name = "articles/index.html"
@@ -23,19 +23,16 @@ class DetailView(generic.DetailView) :
     template_name = 'articles/article_detail.html'
 
 class ArticleCreate(CreateView) :
-    model = Article
+    # model = Article
     # What fields needed
-    fields = ['title','content','category']
-    widgets = {
-            'title': TextInput(attrs={'class': 'title'}),
-            'content': TextInput(attrs={'class': "content"}),
-            }
+    form_class = ArticleForm
+    template_name = 'articles/article_form.html'
 
+    # fields = ['title','content','category']
     success_url = reverse_lazy('logapp:home')
 
     def form_valid(self, form):
         self.object = form.save(commit = False)
-        self.object.category = Category.objects.get(pk = 1)
         self.object.date_added = datetime.now()
         self.user = self.request.user
         self.object.save()

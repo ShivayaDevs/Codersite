@@ -1,40 +1,51 @@
-{% extends 'base.html' %}
-{% block title %}Articles{% endblock %}
+{% extends 'base2.html' %}
+
 {% block head %}
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'articles/index.css' %}">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/practice_home.css' %}">
 {% endblock %}
 
-{% block body %}
+{% block content %}
+<img src="{% static 'articles/comp.jpg' %}" width="100%">
+<div class="container">
+    <br>
+    <div class="container-fluid" style="padding-bottom:10px;">
+        <h3>Articles</h3><a href="{% url 'articles:article-add' %}">
+        <button class="btn btn-info" style="float:right;">
+            <span class="gylphicon glyphicon-plus"></span> Add article
+        </button>
+    </a>
+        <!--<br>-->
+    </div>
+    {% if all_articles %}
 
-<div class="col-md-12 container-fluid header-image">
-  <h1 class="entry-title">Lets Read..</h1>
+    <ul class="no-bullets">
+
+        {% for article in all_articles %}
+        <li>
+            <a href="{% url 'articles:detail' article.id %}">
+                <div class="panel panel-default question-box">
+
+                    <h3>{{ article.title }}
+                        <!--<small><span class="label label-default">{{ question.category.name }}</span></small>-->
+                    </h3>
+                    <p class="less-desc">{{ article.content | slice:":500" }}..</p>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    {% else %}
+    <div class="alert alert-danger" role="alert">
+        No articles found!
+    </div>
+    {% endif %}
 </div>
 
-<div class="col-md-1"></div>
-<div class="col-md-10 article-main">
-  <a href="{% url 'articles:article-add' %}" class="add">+ Add Article</a>
-</div>
-<br><br>
-{% for article in all_articles %}
-  <br>
-  <div class="col-md-12">
-    <div class="col-md-2"></div>
+<script>
+  $('li.active').removeClass('active');
+  $('#article-tab').addClass('active');
+</script>
 
-      <div class="col-md-8 article">
-        <h3><b><a href="{% url 'articles:detail' article.id %}" class="article-title">{{ article.title }}</a></b></h3>
-      
-        <p>{{ article.content | slice:":500"}}..</p>
-      
-       <a href="{% url 'articles:detail' article.id %}" class="read-more">Read More</a>
-        <br>
-        <hr class="rule">
-        <br>
-      </div>
-    <div class="col-md-2"></div>
-  </div>
-  <br><br>
-{% endfor %}
-<br><br>
 {% endblock %}
-

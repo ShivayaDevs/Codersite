@@ -1,19 +1,25 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 {% block title %}Answers{% endblock %}
 {% block head %}
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'forum/answer_form.css' %}">
+{% load static %}
+<!--<link rel="stylesheet" type="text/css" href="{% static 'forum/answer_form.css' %}">-->
 {% endblock %}
 
-{% block body %}
-  <h2 class="col-md-12 head">{{ question.question }}</h2><br><br>
-  <form action="" method="post" class="qform" role="form">
-  {% csrf_token %}
-  {% include 'forum/form_template.html' %}
-  <br><br>
-  <input class="submit" type="submit" name="submit" value="Submit">
-  </form>
+{% block content %}
+<div class="container">
+    <h2 class="col-md-12 head">{{ question.question }}</h2><br><br>
+    <form action="" method="post" class="qform" role="form">
+        {% csrf_token %}
+        {% include 'forum/form_template.html' %}
+        <br><br>
+        <input class="btn btn-default" type="submit" name="submit" value="Submit">
+    </form>
+</div>
 
+<script>
+  $('li.active').removeClass('active');
+  $('#forum-tab').addClass('active');
+</script>
 {% endblock %}
 
 

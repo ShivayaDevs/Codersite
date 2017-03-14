@@ -1,24 +1,48 @@
-{% extends 'practice/header.html' %}
+{% extends 'base2.html' %}
 
 {% block content %}
+<br>
+<div class="container">
+    <h2>{{ question.title }}</h2>
+    <p>
+        {{ question.statement }}
+    </p>
 
-<h1>{{ question.title }}</h1>
-<p>{{ question.statement }}</p>
+    <form action="{% url 'practice:submit' question.id %}" method="post">
 
-<form action="{% url 'practice:submit' question.id %}" method="post">
-  {% csrf_token %}
+        {% csrf_token %}
 
-  <textarea name="answer_input" rows="10" cols="80">{{ source_code }}</textarea>
-  <br>
-  <input type="submit" name="Submit">
-</form>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>Answer </strong>
+                <select class="form-control">
+                    <option>C++</option>
+                    <option>Java</option>
+                    <option>Python</option>
+                </select>
+            </div>
+            <div class="panel-body">
+                <textarea class="form-control" name="answer_input" rows="13" cols="80">{{ source_code}}</textarea>
+            </div>
+        </div>
+        {% if result_message %}
+        {% if result_code is not 0 %}
+        <div class="alert alert-danger" role="alert" style="float: left;">
+            {{ result_message }}
+        </div>
+        {% else %}
+        <div class="alert alert-success" role="alert" style="float: left;">
+            Correct answer!
+        </div>
+        {% endif %}
+        {% endif %}
+        <input class="btn btn-primary" type="submit" name="Submit" style="float:right;">
+    </form>
+</div>
 
-{% if result_message %}
-    {% if result_code is 0 %}
-        <span style="color:green;">Yes!{{ result_message }}</span>
-    {% else %}
-        <span style="color:red;">{{ result_message }}</span>
-    {% endif %}
-{% endif %}
+<script>
+  $('li.active').removeClass('active');
+  $('#practice-tab').addClass('active');
 
+</script>
 {% endblock %}

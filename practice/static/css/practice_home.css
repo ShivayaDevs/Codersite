@@ -1,0 +1,14 @@
+.question-box{
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.question-box:hover{
+  background-color: #c8e6c9;
+}
+.no-bullets{
+  list-style-type: none;
+}
+.less-desc{
+  color: black;
+}
