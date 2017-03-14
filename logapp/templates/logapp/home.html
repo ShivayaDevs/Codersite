@@ -5,7 +5,8 @@
 
 {% block content %}
 
-  <!--Row 1: Image + login panel -->
+
+  <!--Row 1: Image + user stats-->
   <div class="row">
     <div class="col-md-8" id="big-logo-bg">
         <br>
@@ -47,52 +48,6 @@
   </div>
   <br><br>
 
-
-  <!-- Row for 3 sections -->
-  <div class="row">
-
-    <div class="container col-md-4 ">
-      <div class="panel panel-default sections">
-        <img src="{% static 'images/practice_lamp.svg' %}" width="30%">
-        <h3>Practice</h3>
-        <p>Try out exciting problems and be a pro.</p>
-      </div>
-    </div>
-
-    <div class="container col-md-4 ">
-      <div class="panel panel-default sections">
-        <img src="{% static 'images/learn_bookshelf.svg' %}" width="30%">
-        <h3>Learn</h3>
-        <p>Access articles written by experienced professionals.</p>
-      </div>
-    </div>
-
-    <div class="container col-md-4 ">
-      <div class="panel panel-default sections">
-        <img src="{% static 'images/ask_chat.svg' %}" width="30%">
-        <h3>Ask &amp; Answer</h3>
-        <p>Visit the community forums and share knowledge.</p>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="panel panel-default"  id="footer-div">
-      <address>
-        <h2><span class="glyphicon glyphicon-leaf" style="color: #14c07b;"></span> Codersite</h2>
-        <small>
-        Web Technologies Project<br>
-        Delhi Technological University<br>
-        Copyright (c) DTU
-        </small>
-      </address>
-    </div>
-  </div>
-
-<script>
-  $('li.active').removeClass('active');
-  $('#home-tab').addClass('active');
-</script>
-
-
-
+{% include 'logapp/cardAndFooter.html'%}
+ 
 {% endblock %}
