@@ -8,6 +8,8 @@ from django.views.generic import View
 from datetime import datetime
 from django.contrib.auth.models import User
 from practice.models import Category
+from .forms import QuestionForm, AnswerForm
+
 # Create your views here.
 class IndexView(generic.ListView) :
   template_name = 'forum/index.html'
@@ -24,8 +26,9 @@ class DetailView(generic.DetailView) :
   template_name = 'forum/detail.html'
 
 class QuestionCreate(CreateView) :
-  model = Question
-  fields = ['question', 'ques_category']
+  form_class = QuestionForm
+  template_name = 'forum/question_form.html'
+
   def form_valid(self, form) :
     self.object = form.save(commit = False)
     try: 
@@ -41,9 +44,8 @@ class QuestionCreate(CreateView) :
     return super(QuestionCreate, self).form_valid(form)
 
 class AnswerCreate(CreateView) :
-  model = Answer
-  fields = ['answer']
-
+  form_class = AnswerForm
+  template_name = 'forum/answer_form.html'
   #passing data to template
   def get_context_data(self, **kwargs):
       return dict(

@@ -1,34 +1,51 @@
-{% extends 'base.html' %}
-{% block title %}Forum{% endblock %}
-{% block head %}
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'forum/index.css' %}">
-{% endblock %}
-{% block body %}
-  <div class="col-md-12 container-fluid header-image">
-  <h1 class="entry-title">Forum</h1>
-  </div>
+{% extends 'base2.html' %}
 
-  <div class="col-md-1"></div>
-  <div class="col-md-10 forum-main">
-    <a href="{% url 'forum:questionAdd'  %}" class="add">+ Ask Question</a>
-  </div>
-  <br><br>
-  {% for ques in all_ques %}
-    <div class="row" style="margin-top:0px;">
-      <div class="col-md-2"></div>
-      <div class="col-md-8 forum">
-        <h3><b><a href="{% url 'forum:detail' ques.id %}" class="forum-title">{{ ques.question }}</a></b></h3>
-        <br>
-        
-        <h4 class="category">{{ques.ques_category.name}} </h4>
-        <a href="{% url 'forum:detail' ques.id %}" class="read-more">View</a>
-        <br>
-        <hr class="rule">
-      </div>
-      <div class="col-md-2"></div>
+{% block head %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/practice_home.css' %}">
+{% endblock %}
+
+{% block content %}
+<img src="{% static 'articles/comp.jpg' %}" width="100%">
+<div class="container">
+    <br>
+    <div class="container-fluid" style="padding-bottom:10px;">
+        <h3>Forum</h3><a href="{% url 'forum:questionAdd'  %}">
+        <button class="btn btn-info" style="float:right;">
+            <span class="gylphicon glyphicon-plus"></span> Ask Question
+        </button>
+    </a>
+        <!--<br>-->
     </div>
-    <br><br>
-  {% endfor %}
+    {% if all_ques %}
+
+    <ul class="no-bullets">
+
+        {% for question in all_ques %}
+        <li>
+            <a href="{% url 'forum:detail' question.id %}">
+                <div class="panel panel-default question-box">
+
+                    <h3>{{ question.question }}
+                        <small><span class="label label-default">{{ question.ques_category.name }}</span></small>
+                    </h3>
+                    <!--<p class="less-desc">{{ article.content | slice:":500" }}..</p>-->
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    {% else %}
+    <div class="alert alert-danger" role="alert">
+        No articles found!
+    </div>
+    {% endif %}
+</div>
+
+<script>
+  $('li.active').removeClass('active');
+  $('#forum-tab').addClass('active');
+</script>
 
 {% endblock %}

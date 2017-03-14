@@ -1,25 +1,21 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 {% block title %}Article{% endblock %}
-{% block head %}
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'articles/article_detail.css' %}">
-{% endblock %}
 
-{% block body %}
-  
-  <div class="col-md-12">
-    <div class="col-md-2"> </div>
+{% load static %}
 
-    <div class="col-md-8">
-      <p class="head">{{article.user.username}}&nbsp;|&nbsp; {{article.date_added}}</p>
-      <h1>{{article.title}}</h1>
-      <h4 class="category"> {{article.category.name}} </h4>
-      <hr>
-      <div class= "mainContent" >{{article.content}}</div>
-    </div>
-    <br><br>
-    <div class="col-md-2"></div>
-  </div>
-  <br><br>
+{% block content %}
+<br>
+<div class="container">
+    {{article.user.username}} | {{article.date_added }} <span class="badge">{{article.category.name}}</span><br>
+    <h2>{{ article.title }}</h2>
+    <p>
+        {{ article.content }}
+    </p>
+</div>
+
+<script>
+  $('li.active').removeClass('active');
+  $('#article-tab').addClass('active');
+</script>
 {% endblock %}
 

@@ -4,8 +4,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from practice.models import Category
 
-
-
 # Create your models here.
 
 class Article(models.Model) :

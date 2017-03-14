@@ -3,6 +3,7 @@ from django.views import generic
 from django.utils import timezone
 from .models import Question, UserSolution
 from . import program_executor
+from django.contrib.auth.decorators import login_required
 
 class IndexView(generic.ListView):
   template_name = 'practice/index.html'
@@ -11,6 +12,8 @@ class IndexView(generic.ListView):
   def get_queryset(self):
     return Question.objects.all()
 
+
+@login_required(login_url='../../login/')
 def detail(request, question_id):
   question = get_object_or_404(Question, pk=question_id)
   code = """
@@ -29,6 +32,7 @@ def detail(request, question_id):
 
 # How do I get the userID to pass to add_submission_to_db function?
 # Basically, how can I get the currently logged in user's ID?
+@login_required(login_url='../../../login/')
 def submit(request, question_id):
   question = get_object_or_404(Question, pk=question_id)
   code = request.POST['answer_input']

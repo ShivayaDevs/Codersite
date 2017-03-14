@@ -1,0 +1,96 @@
+.navbar{
+    -webkit-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.05);
+    -moz-box-shadow: 0 8px 6px -6px rgba(0,0,0,0.05);
+    box-shadow: 0 8px 6px -6px rgba(0,0,0,0.05);
+    background-color: white;
+    /*color: #14c07b; */
+}
+.navbar-brand{
+  color: #14c07b;
+}
+
+body{
+  padding-top: 50px;
+}
+
+#big-logo-bg,#we{
+  /*background-color: #829192;*/
+
+  background-image:url('../images/glass_board.png');
+}
+img{
+  display: block;
+  margin:auto;
+}
+#username{
+  /*float:right;*/
+  text-align: center;
+  color: white;
+
+}
+.row{
+  margin-left: 0;
+  margin-right: 0;
+  padding-bottom: 0;
+}
+.sections{
+  text-align: center;
+  padding: 10px;
+}
+#footer-div{
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  background-color: #ECEFF1;
+  margin-bottom: 0;
+}
+.progress-bar-vertical {
+  width: 30px;
+  min-height: 250px;
+  display: flex;
+  align-items: flex-end;
+  margin-right: 20px;
+  float: left;
+}
+
+.progress-bar-vertical .progress-bar {
+  width: 100%;
+  height: 0;
+  -webkit-transition: height 0.6s ease;
+  -o-transition: height 0.6s ease;
+  transition: height 0.6s ease;
+}
+a:hover{
+    text-decoration:none;
+}
+
+clickableCard:link{
+    color: black;
+}
+.card-div{
+    color:black;
+}
+
+.card{
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: 0.2s;  
+}
+
+.card:hover{
+  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
+.description{
+  color:#606060;
+}
+
+.splitSection{
+  display:flex;
+  /*background-color: #ff0000;*/
+  background-image:url('../images/glass_board.png');
+}
+
+/* Tried setting it on logo but square is formed, so didn't use it */
+.logo-image{
+  /*box-shadow: 0px 8px 16px  rgba(0,0,0,0.8);*/
+}
